@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=0.9.4
+Name=Time Doctor 2
+Comment=An application for tracking your working hours.
+Icon=/home/tts-377-pradeepr/timedoctor2/timedoctor2.png
+Exec=/home/tts-377-pradeepr/timedoctor2/timedoctor2
+Terminal=false
+Path=/home/tts-377-pradeepr/timedoctor2
