@@ -1,11 +1,10 @@
 import React from 'react';
 import Wrapper from '../components/HOC';
-import Cycling from './Lifecycle';
-
+import Pagination from './Pagination';
 
 
 function Service(props) {
-     const {CountIncrement, count,rows,columns} = props; 
+     const {CountIncrement, count} = props; 
     return (
          <div  className='login'>
               <h1 style={{textAlign:'center',padding:'10px'}}>Service Page</h1>
@@ -13,7 +12,7 @@ function Service(props) {
               <div className='hoc'>
             <button className='count' onClick={CountIncrement}>Count :{count} </button>
             </div>
-            <Cycling />
+           <Pagination />
            
          </div>
     );

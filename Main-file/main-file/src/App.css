@@ -200,7 +200,7 @@ left:10%;
 }
 
 /*Filter-table*/
-.Data{
+/* .Data{
   width:300px;
   margin:0 auto;
   padding-top:30px;
@@ -224,7 +224,7 @@ left:10%;
 .detail-name{
   color:blue;
 }
-/**/
+
 .post {
   display: flex;
   flex-direction: column;
@@ -290,8 +290,21 @@ small {
   pointer-events: none;
   box-shadow: none;
   color: #999;
+} */
+/*Table*/
+.table{
+  margin-bottom: 0px !important;
 }
-
+.page-item{
+   text-align: center;
+}
+.pagination{
+  margin:10px auto;
+  justify-content: center;
+}
+.form-control{
+  margin:10px 0;
+}
 
 
 /*carousel*/
@@ -541,7 +554,9 @@ img{
   .top{
     justify-content: space-evenly;
   }
+  
 }
+
 @media only screen  and (max-width:991px){
   .footer{
     padding:10px;
@@ -577,6 +592,7 @@ img{
   .edit-table .btn{
     padding: 7px !important;
   }
+  
   
 }
 
