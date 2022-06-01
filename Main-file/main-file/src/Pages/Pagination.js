@@ -2,12 +2,13 @@ import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Table from 'react-bootstrap/Table';
+import '../sass.scss';
 
 
 export default function Pagination() {
   const [todos, setTodos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  
+  const [toggle,setToggle]  = useState(false)
   const [currentPage, setCurrentPage] = useState(1);
   const [totalTodos, setTotalTodos] = useState(0);
   const todosPerPage = 25;
@@ -17,7 +18,7 @@ export default function Pagination() {
       .get(`https://jsonplaceholder.typicode.com/todos`)
       .then((response) => {
         setTodos(response.data);
-        
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -25,12 +26,20 @@ export default function Pagination() {
   }, []);
 
   
+  
+
   const pageNumbers = [];
    for (let i = 1; i <= Math.ceil(totalTodos / todosPerPage); i++) {
     pageNumbers.push(i);
     
   }
 
+     
+  const toggler = () => {
+    setToggle((prevState) => ({
+      toggle: !prevState.toggle
+    }))
+  }
 
   const todosData = useMemo(() => {
     let computedTodos = todos;
@@ -42,6 +51,8 @@ export default function Pagination() {
         );
     }
 
+   
+     
     setTotalTodos(computedTodos.length);
 
     //Current Page slice
@@ -55,6 +66,7 @@ export default function Pagination() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+ 
   
 
   return (
@@ -71,13 +83,13 @@ export default function Pagination() {
           }}
         />
 
-            {todos.length > 0 ?(
-              <Table striped bordered hover variant="dark">
+
+<Table striped bordered hover variant="dark">
                 <thead>
                   <tr >
                     <td>ID</td>
                     <td>Title</td>
-                   
+                   <td>Status</td>
                   </tr>
                 </thead>
                 {todosData.map((todo)=>{
@@ -86,15 +98,21 @@ export default function Pagination() {
                       <tr key={todo.id}>
                         <td>{todo.id}</td>
                         <td>{todo.title}</td>
-                        
+                       
+                        <td><button onClick={toggler}  className="toggle">
+                          <div className={todo.completed ? 'switch active' : 'switch'} />
+                          </button></td>
                       </tr>
                     </tbody>
                   )
                 })}
+                {todosData.length <=0  &&
+              <div><h1 style={{color:'black'}}>No Data Found</h1></div>
+            }
               </Table>
-            ):null}
-        
-    
+            
+            
+              
 
       
       
