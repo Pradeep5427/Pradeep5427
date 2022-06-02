@@ -199,8 +199,8 @@ font-size:60px;
 left:10%;
 }
 
-/*Filter-table*/
-/* .Data{
+Filter-table*/
+ .Data{
   width:300px;
   margin:0 auto;
   padding-top:30px;
@@ -290,7 +290,7 @@ small {
   pointer-events: none;
   box-shadow: none;
   color: #999;
-} */
+}
 /*Table*/
 .table{
   margin-bottom: 0px !important;
@@ -308,7 +308,12 @@ small {
 
 /**/
 
-
+.clear{
+  background-color: transparent;
+  border:none;
+  color:red;
+  font-size:30px;
+}
 /*carousel*/
 .carousel-indicators [data-bs-target] {
 width:10px !important;

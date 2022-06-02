@@ -1,6 +1,6 @@
 import React from 'react';
 import Wrapper from '../components/HOC';
-import Filter_table  from './filter-table';
+import ReactMemo from './react-memo';
 
  function Contact(props){
     const {CountIncrement, count} = props; 
@@ -10,7 +10,7 @@ import Filter_table  from './filter-table';
         
       
       <button className='count' onClick={CountIncrement}>Count :{count} </button>
-      <Filter_table />
+      <ReactMemo />
         </div>
     )
 }

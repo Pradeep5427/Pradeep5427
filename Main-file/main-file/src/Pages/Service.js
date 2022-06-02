@@ -1,6 +1,7 @@
 import React from 'react';
 import Wrapper from '../components/HOC';
 import Pagination from './Pagination';
+import PureComponents from './purecomponent';
 
 
 function Service(props) {
@@ -13,7 +14,7 @@ function Service(props) {
             <button className='count' onClick={CountIncrement}>Count :{count} </button>
             </div>
            <Pagination />
-           
+           <PureComponents />
          </div>
     );
   }

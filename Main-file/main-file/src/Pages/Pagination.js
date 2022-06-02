@@ -3,12 +3,15 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Table from 'react-bootstrap/Table';
 import '../sass.scss';
+import {MdDeleteSweep} from 'react-icons/md';
+import ReactDeleteRow from 'react-delete-row';
 
 
 export default function Pagination() {
   const [todos, setTodos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [toggle,setToggle]  = useState(false)
+  const [toggle,setToggle]  = useState(false);
+  
   const [currentPage, setCurrentPage] = useState(1);
   const [totalTodos, setTotalTodos] = useState(0);
   const todosPerPage = 25;
@@ -33,6 +36,7 @@ export default function Pagination() {
     pageNumbers.push(i);
     
   }
+ 
 
      
   const toggler = () => {
@@ -50,7 +54,7 @@ export default function Pagination() {
             todo.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
     }
-
+    
    
      
     setTotalTodos(computedTodos.length);
@@ -90,19 +94,23 @@ export default function Pagination() {
                     <td>ID</td>
                     <td>Title</td>
                    <td>Status</td>
+                   <td>Remove</td>
                   </tr>
                 </thead>
                 {todosData.map((todo)=>{
                   return (
                     <tbody>
-                      <tr key={todo.id}>
+                      <ReactDeleteRow key={todo.id} todos={todo}
+                      deleteElement={ <MdDeleteSweep className="clear" /> }
+                      onDelete={ item => { return window.confirm(`Are you sure to delete?`) }}>
                         <td>{todo.id}</td>
                         <td>{todo.title}</td>
                        
                         <td><button onClick={toggler}  className="toggle">
                           <div className={todo.completed ? 'switch active' : 'switch'} />
-                          </button></td>
-                      </tr>
+                          </button> </td>
+                          
+                      </ReactDeleteRow>
                     </tbody>
                   )
                 })}
