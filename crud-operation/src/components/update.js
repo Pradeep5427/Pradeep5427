@@ -68,7 +68,7 @@ export default function  Update({status,handleClose,handleChange,submitUpdateFor
           </Button>
 
           <Button variant="success" onClick={submitUpdateForm}>
-            Save Changes
+           Update
           </Button>
                 
             </Modal.Footer>

@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function Home(){
    const dispatch = useDispatch();
    const [state,setState] = useState({
-       id:'',
+       id:'1',
        name:'',
        email:'',
        phonenumber:'',
@@ -22,11 +22,12 @@ export default function Home(){
        })
 
        const {lists} = useSelector(state =>state.lists);
-       const loadedTodos = localStorage.getItem('setitems') ?
-              JSON.parse(localStorage.getItem('setitems')) : [];
+
+        const load = localStorage.getItem('setitems') ?
+        JSON.parse(localStorage.getItem('setitems')) : [];
 
 
-      const [local,setLocal] = useState(loadedTodos);
+      const [local,setLocal] = useState(load);
      
        
        
@@ -64,12 +65,10 @@ export default function Home(){
                 password
             };
        
-            
-
             if(state.name !== '' && state.email !== '' && state.number !== '' && state.password !== ''){
                 setState({...state});
                 dispatch(addItem(obj));
-                if(!lists.loading){
+                if(!lists){
                         setState({...state, name:"",email:"",number:"",password:""});
                     }
                }
@@ -78,10 +77,10 @@ export default function Home(){
               console.log('get',local);
 
               setLocal([...local].concat(state));
-              setState("");
+           
                    
-              // const news =  JSON.parse(localStorage.getItem('setitems'));
-              // console.log('set',news);
+               const news =  JSON.parse(localStorage.getItem('setitems'));
+               console.log('set',news);
 
              
               
@@ -89,13 +88,16 @@ export default function Home(){
             setStatus({ ...status, add: false });
         }
 
+       
+       // window.localStorage.clear();
+
         const submitUpdateForm = e => {
             e.preventDefault();
         
             setState({ ...state });
             dispatch(updateItem(state));
             setTimeout(() => {
-              if (!lists.loading) {
+              if (!local) {
                 setState({ ...state});
                 alert("Successfully Updated");
               }
@@ -138,10 +140,11 @@ export default function Home(){
    return(
        <div>
            <Header addHandle={addHandle}/>
-           {state.loading && <h3>Loading....</h3>}
+           
            <div>
                <Container>
                    <ListItem lists={local} 
+                 
                     onHandleEdit={onHandleEdit}
                     onDelete={onDelete}
                     />

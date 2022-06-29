@@ -24,7 +24,7 @@ export default function ListItem({lists,onHandleEdit,onDelete}){
             <tbody>
              
                 {lists && lists.map((list,index)=>(
-                        <tr key={index } >
+                        <tr key={index} >
                             <td>{index + 1 }</td>
                             <td>{list.name}</td>
                             <td>{list.email}</td>
@@ -32,7 +32,7 @@ export default function ListItem({lists,onHandleEdit,onDelete}){
                             <td>{list.password}</td>
                             
                             <td>
-                                <  BiEditAlt className='edit' onClick={()=>onHandleEdit(list)}/>
+                                < BiEditAlt className='edit' onClick={()=>onHandleEdit(list)}/>
                                 <MdDelete className='delete' onClick={()=>onDelete(list)} />
                             </td>
                         </tr>
