@@ -503,8 +503,17 @@ td{
 img{
   width:80px;
 }
-
-
+/**/
+.redux{
+  display: flex;
+  flex-direction: column;
+  width:100px;
+ margin:20px auto;
+}
+.number{
+  text-align: center;
+  padding: 15px;
+}
 /*FOOTER*/
 .footer{
   background: black;

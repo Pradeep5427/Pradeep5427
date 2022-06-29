@@ -4,10 +4,6 @@ import {BsInstagram} from 'react-icons/bs';
 import {AiOutlineLinkedin} from 'react-icons/ai';
 
 
-
-
-
-
 export default function Login(){
   const [userData,setUserData]= useState({
     username:"",

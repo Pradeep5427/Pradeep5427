@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import SideNav from './sidebar';
+import SideNav from './sidebar'
 import {FaBars} from 'react-icons/fa';
 import {CgProfile} from 'react-icons/cg';
 import logo from "../images/logo.png";

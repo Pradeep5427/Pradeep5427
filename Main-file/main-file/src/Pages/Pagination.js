@@ -7,6 +7,7 @@ import {MdDeleteSweep} from 'react-icons/md';
 import ReactDeleteRow from 'react-delete-row';
 
 
+
 export default function Pagination() {
   const [todos, setTodos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -119,14 +120,6 @@ export default function Pagination() {
             }
               </Table>
             
-            
-              
-
-      
-      
-  
-      
-   
    
 <nav>  
         <ul className="pagination">

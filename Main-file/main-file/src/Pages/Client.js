@@ -1,6 +1,7 @@
 import React from 'react';
-import Images from '../API/img-api';
-
+import Images from '../api/img-api';
+ // import { Counter } from '../Redux/counter';
+import MainContainer from '../containers/MainContainer';
 
 
 class Clients extends React.Component {
@@ -10,6 +11,8 @@ class Clients extends React.Component {
               <h1 style= {{textAlign:'center'}}>Clients Page</h1>
              <Images />
              {/* <Pagination /> */}
+             {/* { <Counter />}  */}
+             <MainContainer />
           </div>
       )
   }
