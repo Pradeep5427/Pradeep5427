@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector,useDispatch } from 'react-redux';
-import { getItems } from '../actions/crudActions';
+// import { getItems } from '../actions/crudActions';
 import ListItem from "./ListItem";
 import Header from "./header";
 import { Container } from "react-bootstrap";
@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function Home(){
    const dispatch = useDispatch();
    const [state,setState] = useState({
-       id:'1',
+       id: '',
        name:'',
        email:'',
        phonenumber:'',
@@ -22,9 +22,8 @@ export default function Home(){
        })
 
        const {lists} = useSelector(state =>state.lists);
-
-        const load = localStorage.getItem('setitems') ?
-        JSON.parse(localStorage.getItem('setitems')) : [];
+       const load = localStorage.getItem('setitems') ?
+              JSON.parse(localStorage.getItem('setitems')) : [];
 
 
       const [local,setLocal] = useState(load);
@@ -65,10 +64,14 @@ export default function Home(){
                 password
             };
        
+
+        
+            
+
             if(state.name !== '' && state.email !== '' && state.number !== '' && state.password !== ''){
                 setState({...state});
                 dispatch(addItem(obj));
-                if(!lists){
+                if(!local){
                         setState({...state, name:"",email:"",number:"",password:""});
                     }
                }
@@ -77,19 +80,13 @@ export default function Home(){
               console.log('get',local);
 
               setLocal([...local].concat(state));
-           
-                   
-               const news =  JSON.parse(localStorage.getItem('setitems'));
-               console.log('set',news);
-
-             
+              setState("");
               
-            
+              // const news =  JSON.parse(localStorage.getItem('setitems'));
+              // console.log('set',news);
+
             setStatus({ ...status, add: false });
         }
-
-       
-       // window.localStorage.clear();
 
         const submitUpdateForm = e => {
             e.preventDefault();
@@ -121,8 +118,8 @@ export default function Home(){
                 setStatus({...state,add:true});
           }
 
-          const onDelete = (list) =>{
-                    dispatch(deleteItem(list));
+          const onDelete = (deleted) =>{
+                    dispatch(deleteItem(deleted));
                     alert('deleted Successfully');
 
           }
@@ -132,19 +129,20 @@ export default function Home(){
             setState({ ...state});
           }
 
+
+          // window.localStorage.clear();
  
-   useEffect(()=>{
-       dispatch(getItems())
-   },[dispatch])
+  //  useEffect(()=>{
+  //      dispatch(getItems())
+  //  },[dispatch])
 
    return(
        <div>
            <Header addHandle={addHandle}/>
-           
+       
            <div>
                <Container>
                    <ListItem lists={local} 
-                 
                     onHandleEdit={onHandleEdit}
                     onDelete={onDelete}
                     />

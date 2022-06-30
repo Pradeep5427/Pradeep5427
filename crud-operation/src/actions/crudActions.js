@@ -1,14 +1,14 @@
-import  {listArray} from '../utils/data';
+// import  {listArray} from '../utils/data';
 import { ADD_ITEM,UPDATE_ITEM,DELETE_ITEM,LIST_ITEMS, STORE_DATA } from './types';
 
 
 
-export const getItems = () => {
-  return { 
-    type: LIST_ITEMS,
-    payload: listArray
-  }
-};
+// export const getItems = () => {
+//   return { 
+//     type: LIST_ITEMS,
+//     payload: listArray
+//   }
+// };
 
 export const addItem = item =>{
     return{

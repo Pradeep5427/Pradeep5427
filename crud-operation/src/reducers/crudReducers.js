@@ -8,6 +8,18 @@ let  initialState = {
 
 
 export default function Reducer(state=initialState,action){
+
+
+    console.log(action,"actionactionactionaction")
+    console.log(state,"statestate")
+
+    const load = localStorage.getItem('setitems') ?
+    JSON.parse(localStorage.getItem('setitems')) : [];
+
+    console.log(load,"loadload")
+
+
+
     switch (action.type){
         case LIST_ITEMS : 
         return {
@@ -21,16 +33,15 @@ export default function Reducer(state=initialState,action){
                 
             };
             case UPDATE_ITEM :
-                let update = state.lists.map(list=>
-                    list.id===action.payload.id ? action.payload : list
+                let update = load.map(list=>
+                    list.email === action.payload.email ? action.payload : list
                     );
-                    return {
+                    return { 
                         ...state,
                         lists :update,
-                        
-                    };
+                      };
               case DELETE_ITEM :
-                  let filtered = state.lists.filter(({id,...rest})=> id !== action.payload.id);
+                  let filtered = state.lists.filter(({email,...rest})=> email !== action.payload.email);
                   return{
                       ...state,
                       lists : filtered,
