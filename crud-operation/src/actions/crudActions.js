@@ -1,5 +1,5 @@
 // import  {listArray} from '../utils/data';
-import { ADD_ITEM,UPDATE_ITEM,DELETE_ITEM,LIST_ITEMS, STORE_DATA } from './types';
+import { ADD_ITEM,UPDATE_ITEM,DELETE_ITEM} from './types';
 
 
 
@@ -10,24 +10,24 @@ import { ADD_ITEM,UPDATE_ITEM,DELETE_ITEM,LIST_ITEMS, STORE_DATA } from './types
 //   }
 // };
 
-export const addItem = item =>{
+export const addItem = payload =>{
     return{
         type:ADD_ITEM,
-        payload :item
+        payload 
     };
 };
 
-export const updateItem = item =>{
+export const updateItem = payload =>{
     return{
         type:UPDATE_ITEM,
-        payload :item
+        payload 
     };
 };
 
-export const deleteItem = item =>{
+export const deleteItem = payload =>{
     return{
         type:DELETE_ITEM,
-        payload :item
+        payload 
     };
 };
 

@@ -29,7 +29,7 @@ export default function LoginPage(){
          details.password === "12345678"
      ){
          localStorage.setItem('isAuthenticated',true);
-         window.location.pathname = '/table';
+         window.location.pathname = '/';
          }else{
              alert('Invalid username/password')
              return;

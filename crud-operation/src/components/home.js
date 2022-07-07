@@ -10,6 +10,12 @@ import Create from "./create";
 import { v4 as uuidv4 } from 'uuid';
 
 
+
+
+
+         
+
+
 export default function Home(){
    const dispatch = useDispatch();
    const [state,setState] = useState({
@@ -22,26 +28,13 @@ export default function Home(){
        })
 
        const {lists} = useSelector(state =>state.lists);
-       const load = localStorage.getItem('setitems') ?
-              JSON.parse(localStorage.getItem('setitems')) : [];
+
+      //  const load = localStorage.getItem('setitems') ?
+      //         JSON.parse(localStorage.getItem('setitems')) : [];
 
 
-      const [local,setLocal] = useState(load);
-     
-       
-       
-
-      //  useEffect(()=>{
-      //         if(window.type !== 'undefined'){
-      //           const news =localStorage.getItem('setitems');
-      //           console.log("new",news);
-      //           if(news){
-      //             setLocal(JSON.parse(localStorage.getItem('setitems')))
-      //           }
-      //         }
-      //  })
-
-     
+      const [local,setLocal] = useState([]);
+  
       const [status, setStatus] = useState({
         edit: false,
         add: false
@@ -130,7 +123,7 @@ export default function Home(){
           }
 
 
-          // window.localStorage.clear();
+           // window.localStorage.removeItem('setitems');
  
   //  useEffect(()=>{
   //      dispatch(getItems())
@@ -142,7 +135,7 @@ export default function Home(){
        
            <div>
                <Container>
-                   <ListItem lists={local} 
+                   <ListItem lists={lists} 
                     onHandleEdit={onHandleEdit}
                     onDelete={onDelete}
                     />

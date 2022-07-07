@@ -1,18 +1,11 @@
-import React from "react";
-import { Navigate, Route } from "react-router-dom";
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
 
-function ProtectedRoute({ element: Element, ...restOfProps }) {
-  const isAuthenticated = localStorage.getItem("isAuthenticated");
-  console.log("this", isAuthenticated);
+export default function Private({children}){
+  const Auth = localStorage.getItem('isAuthenticated');
+  console.log(Auth)
 
-  return (
-    <Route
-      {...restOfProps}
-      render={(props) =>
-        isAuthenticated ? <Element {...props} /> : <Navigate to="/" />
-      }
-    />
-  );
+  return Auth ? children : <Navigate to="/login" />
+
+  
 }
-
-export default ProtectedRoute;
