@@ -33,7 +33,7 @@ export default function Home(){
       //         JSON.parse(localStorage.getItem('setitems')) : [];
 
 
-      const [local,setLocal] = useState([]);
+      // const [local,setLocal] = useState([]);
   
       const [status, setStatus] = useState({
         edit: false,
@@ -56,23 +56,19 @@ export default function Home(){
                 number,
                 password
             };
-       
-
-        
-            
-
+                 
             if(state.name !== '' && state.email !== '' && state.number !== '' && state.password !== ''){
                 setState({...state});
                 dispatch(addItem(obj));
-                if(!local){
+                if(!lists){
                         setState({...state, name:"",email:"",number:"",password:""});
                     }
                }
               
-              localStorage.setItem('setitems',JSON.stringify([...local,state]));
-              console.log('get',local);
+              // localStorage.setItem('setitems',JSON.stringify([...local,state]));
+              // console.log('get',local);
 
-              setLocal([...local].concat(state));
+              // setLocal([...local].concat(state));
               setState("");
               
               // const news =  JSON.parse(localStorage.getItem('setitems'));
@@ -87,7 +83,7 @@ export default function Home(){
             setState({ ...state });
             dispatch(updateItem(state));
             setTimeout(() => {
-              if (!local) {
+              if (!lists) {
                 setState({ ...state});
                 alert("Successfully Updated");
               }
