@@ -1,0 +1,57 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+/*LogoBar*/
+.logobar{
+  padding:5px;
+  letter-spacing: 4px;
+  background: rgb(41,73,97);
+  justify-content: space-between;
+ }
+.logo{
+  width:178px;
+}
+.lynx{
+  color: darkorange; 
+  margin-left:3px;
+}
+.lenny{
+  padding: 11px;
+  margin: auto 10px;
+  align-items: center;
+}
+.square{
+  width:10px;
+  height: 10px;
+  border-radius: 50%;
+  margin:8px;
+  background: white;
+  }
+.logobar-right{
+  padding: 10px;
+  color: white;
+  letter-spacing:0;
+}
+.badge{
+  background-color: white;
+  color: black;
+  margin:3px;
+}
+
+/*Navbar*/
+.navbar{
+  padding: 5px;
+  background-color:teal;
+}
+.nav-icon{
+  color:white;
+}
+.text{
+  font-size: 10px;
+  text-align: center;
+  color:white;
+}
