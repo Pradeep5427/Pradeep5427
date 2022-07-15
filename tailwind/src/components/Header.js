@@ -2,12 +2,14 @@
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { Link } from 'react-router-dom';
+
 
 const navigation = [
-  { name: 'Home', href: 'home' },
-  { name: 'Features', href: 'features' },
-  { name: 'Marketplace', href: 'marketplace' },
-  { name: 'About', href: 'about' },
+  { id:'1' ,name: 'Home', href: 'home' },
+  { id:'2' ,name: 'Features', href: 'features' },
+  { id:'3',  name: 'Marketplace', href: 'market' },
+  { id:'4' , name: 'About', href: 'about' },
 ]
 
 const Logout = () =>{
@@ -53,13 +55,14 @@ export default function Header() {
                 </div>
                 <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                   {navigation.map((item) => (
-                    <a key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                    <Link key={item.id}  to={item.href} className="font-medium text-gray-500 hover:text-gray-900">
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
-                  <button  onClick={()=>Logout()} className="font-medium text-indigo-600 hover:text-indigo-500">
+                  
+                   <button  onClick={()=>Logout()} className="font-medium text-indigo-600 hover:text-indigo-500">
                     Log out
-                  </button>
+                  </button> 
                 </div>
               </nav>
             </div>
@@ -95,13 +98,13 @@ export default function Header() {
                   </div>
                   <div className="px-2 pt-2 pb-3 space-y-1">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
+                      <Link
+                        key={item.id}
                         href={item.href}
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   <a

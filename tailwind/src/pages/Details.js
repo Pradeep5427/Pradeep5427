@@ -1,5 +1,9 @@
 import React from 'react';
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
+import CssFeatures from '../components/css-features';
+
+
+
 
 const features = [
   {
@@ -59,6 +63,11 @@ export default function Details() {
           </dl>
         </div>
       </div>
+
+      <CssFeatures />
     </div>
+ 
+              
+
   )
 }
